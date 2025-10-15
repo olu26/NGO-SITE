@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   font-weight: 300;
   color: #364d59;
-  font-family: "Roboto", serif; }
+  font-family: Georgia, 'Times New Roman', Times, serif ;; }
 
 .border-2 {
   border-width: 2px; }
@@ -437,7 +437,7 @@ h1, h2, h3, h4, h5,
       left: 0;
       font-size: 20px;
       top: -.3rem;
-      font-family: "icomoon";
+      font-family: "Georgia, 'Times New Roman', Times, serif ;";
       content: "\e5ca";
       position: absolute; }
   .ul-check.white li:before {
@@ -527,7 +527,7 @@ h1, h2, h3, h4, h5,
           -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-          font-family: 'icomoon'; }
+          font-family: 'Georgia, 'Times New Roman', Times, serif ;'; }
       .site-navbar .site-navigation .site-menu .has-children .dropdown {
         visibility: hidden;
         opacity: 0;
@@ -695,7 +695,7 @@ h1, h2, h3, h4, h5,
       .site-mobile-menu .site-nav-wrap .arrow-collapse:before {
         font-size: 12px;
         z-index: 20;
-        font-family: "icomoon";
+        font-family: "Georgia, 'Times New Roman', Times, serif ;";
         content: "\f078";
         position: absolute;
         top: 50%;
@@ -995,7 +995,7 @@ h1, h2, h3, h4, h5,
     font-style: italic;
     font-size: 18px;
     color: #000;
-    font-family: 'Georgia', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
     position: relative; }
   .block-testimony-1 figure {
     position: relative;
@@ -1413,7 +1413,7 @@ h1, h2, h3, h4, h5,
     top: 1rem;
     font-size: 2rem;
     color: #00a651;
-    font-family: "icomoon";
+    font-family: "Georgia, 'Times New Roman', Times, serif ;";
     content: "\e86c"; }
   .feature-3 h3 {
     font-size: 1.3rem; }
@@ -1482,7 +1482,7 @@ h1, h2, h3, h4, h5,
     right: 0;
     content: "\e317";
     position: absolute;
-    font-family: 'icomoon'; }
+    font-family: 'Georgia, 'Times New Roman', Times, serif ;'; }
 
 .heading-39291 {
   text-transform: uppercase;
@@ -1644,10 +1644,10 @@ h1, h2, h3, h4, h5,
   .box-92819 h1 {
     font-weight: 900 !important;
     font-size: 5rem;
-    font-family: "Mansalva", cursive !important; }
+    font-family: Georgia, 'Times New Roman', Times, serif ; }
 
 .text-cursive {
-  font-family: "Mansalva", cursive !important; }
+  font-family: Georgia, 'Times New Roman', Times, serif ;; }
 
 .media-02819 {
   margin-bottom: 60px; }
