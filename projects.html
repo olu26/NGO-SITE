@@ -140,46 +140,70 @@
       }
     }
 
-    /* ==== PROJECT GALLERY: remove spaces between images & make boxes equal ==== */
-    /* Ensure this selector is specific so it doesn't affect other grids */
-    .site-section.project-gallery .container,
-    .site-section.project-gallery .container > .row {
-      width: 100%;
-      max-width: 100%;
-      padding-left: 0;
-      padding-right: 0;
-      margin-left: 0;
-      margin-right: 0;
+    /* New Gallery Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      /* display: flex; */
+      /* justify-content: center; */
+      align-items: center;
+      /* min-height: 100vh; */
     }
 
-    /* remove bootstrap column horizontal padding for this gallery only */
-    .site-section.project-gallery .row > [class*="col-"] {
-      padding-left: 0;
-      padding-right: 0;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      width: 80%;
+      max-width: 800px;
     }
 
-    /* make images same box shape */
-    .site-section.project-gallery img {
-      display: block;
+    .gallery img {
       width: 100%;
-      height: 240px; /* change to your preferred box height */
+      height: 200px;
       object-fit: cover;
-      vertical-align: middle;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    /* optional small gap for visual separation between rows (vertical only) */
-    .site-section.project-gallery .row + .row {
-      margin-top: 1px;
+    .gallery img:hover {
+      transform: scale(1.05);
     }
 
-    /* if you want a hover effect */
-    .site-section.project-gallery a.d-block {
-      display: block;
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      /* 
+       */
+      overflow: auto;
+      
+      justify-content: center;
+      align-items: center;
     }
 
-    .site-section.project-gallery a.d-block img:hover {
-      transform: scale(1.03);
-      transition: transform .25s ease;
+    .modal-content {
+      /* max-width: 90%;
+      max-height: 90%; */
+      border-radius: 8px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close:hover {
+      color: #aaa;
     }
   </style>
 </head>
@@ -253,76 +277,27 @@
             <h2 class="text-cursive">Project Gallery</h2>
           </div>
         </div>
-        <!-- NOTE: add project-gallery class to scope styling -->
-        <div class="row project-gallery">
-          <div class="col-md-3 mb-0">
-            <a href="projects/eductae.jpg" data-fancybox="gallery" class="d-block">
-              <img src="projects/eductae.jpg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-05 at 12.34.40 PM.jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-05 at 12.34.40 PM.jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-05 at 12.45.00 PM.jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-05 at 12.45.00 PM.jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-08 at 4.14.23 PM.jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-08 at 4.14.23 PM.jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
+  <div class="gallery">
+    <img src="projects/eductae.jpg" alt="Gallery Image 1" />
+    <img src="projects/WhatsApp Image 2025-10-05 at 12.34.40 PM.jpeg" alt="Gallery Image 2" />
+    <img src="projects/WhatsApp Image 2025-10-05 at 12.45.00 PM.jpeg" alt="Gallery Image 3" />
+    <img src="projects/WhatsApp Image 2025-10-08 at 4.14.23 PM.jpeg" alt="Gallery Image 4" />
+    <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (1).jpeg" alt="Gallery Image 5" />
+    <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (2).jpeg" alt="Gallery Image 6" />
+    <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM.jpeg" alt="Gallery Image 7" />
+    <img src="projects/WhatsApp Image 2025-10-14 at 8.05.38 PM.jpeg" alt="Gallery Image 8" />
+    <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (1).jpeg" alt="Gallery Image 9" />
+    <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (2).jpeg" alt="Gallery Image 10" />
+    <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM.jpeg" alt="Gallery Image 11" />
+    <img src="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM (1).jpeg" alt="Gallery Image 12" />
+    <img src="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM.jpeg" alt="Gallery Image 13" />
+  </div>
 
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (1).jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (1).jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (2).jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (2).jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM.jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM.jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-14 at 8.05.38 PM.jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-14 at 8.05.38 PM.jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (1).jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (1).jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (2).jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (2).jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM.jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM.jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM (1).jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM (1).jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-md-3 mb-0">
-            <a href="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM.jpeg" data-fancybox="gallery" class="d-block">
-              <img src="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM.jpeg" alt="Project Image" class="img-fluid">
-            </a>
-          </div>
-        </div>
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg" />
+  </div>
       </div>
     </div>
 
@@ -422,6 +397,46 @@
     // ensure fancybox or images don't cause page jump while loader visible
     $(window).on('load', function() {
       // nothing else needed — .loaded class will hide loader using CSS transitions above
+    });
+
+    // Initialize Fancybox for gallery
+    $('[data-fancybox="gallery"]').fancybox({
+      loop: true,
+      buttons: [
+        "zoom",
+        "share",
+        "slideShow",
+        "fullScreen",
+        "download",
+        "thumbs",
+        "close"
+      ],
+      thumbs: {
+        autoStart: true
+      }
+    });
+
+    // Modal functionality
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const images = document.querySelectorAll(".gallery img");
+    const closeBtn = document.querySelector(".close");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
     });
   </script>
 

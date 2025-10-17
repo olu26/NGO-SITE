@@ -1,6 +1,5 @@
-# TODO: Create Gallery in projects.html
-
-- [x] Add new site-section div after the call-to-action section
-- [x] Add heading "Project Gallery" inside the new section
-- [x] Add container and row divs for the image grid
-- [x] Add all 16 images from projects/ folder in responsive columns (4 per row on medium screens) with Fancybox lightbox functionality
+- [x] Update CSS to reduce image box height from 240px to 150px for smaller boxes.
+- [x] Add Fancybox initialization script to enable modal popup on image click.
+- [x] Make preview images small tiny (reduce height to 80px).
+- [x] Arrange images side by side without any space (remove gaps and gutters).
+- [x] Implement new gallery with grid layout, dark background, and custom modal.
