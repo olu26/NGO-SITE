@@ -122,8 +122,46 @@
         stroke-width: 0;
     }
 }
+ .team-box-section .team-box {
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
 
+  .team-box-section .team-box:hover {
+    transform: translateY(-5px);
+  }
 
+  .team-box-section .team-box img {
+    width: 100%;
+    height: 320px; /* ensures all same size */
+    object-fit: cover;
+  }
+
+  .team-box-section .team-box-content {
+    padding: 20px;
+  }
+
+  .team-box-section .team-role {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 8px;
+  }
+
+  .team-box-section .team-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .team-box-section .team-desc {
+    font-size: 15px;
+    color: #555;
+  }
     </style>
   </head>
   <div class="wrapper">
@@ -243,44 +281,51 @@
       </div>
       <div class="row align-items-stretch">
 
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="post-entry-1 h-100 bg-white text-center">
-            <a href="#" class="d-inline-block">
-              <img src="kemi.jpeg" alt="Image" class="img-fluid">
-            </a>
-            <div class="post-entry-1-contents">
-              <span class="meta">Director</span>
-              <h2>Mrs. Kemi Akerele</h2>
-              <p>I am blessed with a wonderful family—married with four children and a grandchild. Years ago, I had a dream to care for women with children, orphans, widows, and the less privileged. That dream has become my passion—to turn compassion into action and provide hope and dignity to those in need.</p>
-            </div>
-          </div>
-        </div>
+   
+<div class="row team-box-section">
 
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="post-entry-1 h-100 bg-white text-center">
-            <a href="#" class="d-inline-block">
-              <img src="ope.jpeg" alt="Image" class="img-fluid">
-            </a>
-            <div class="post-entry-1-contents">
-              <span class="meta">Assistant Director</span>
-              <h2>Opeyemi Akerele</h2>
-              <p>I work in the legal field and enjoy spending time with family and friends. I have a heart for helping those in need, and being part of this foundation allows me to support women and children who seek hope and care in times of need.</p>
-            </div>
-          </div>
-        </div>
+  <div class="col-lg-4 col-md-6 mb-5">
+    <div class="team-box h-100">
+      <a href="#" class="d-inline-block">
+        <img src="kemi.jpeg" alt="Mrs. Kemi Akerele">
+      </a>
+      <div class="team-box-content">
+        <span class="team-role">Director</span>
+        <h2 class="team-name">Mrs. Kemi Akerele</h2>
+        <p class="team-desc">
+          I am blessed with a wonderful family—married with four children and a grandchild. Years ago, I had a dream to care for women with children, orphans, widows, and the less privileged. That dream has become my passion—to turn compassion into action and provide hope and dignity to those in need.
+        </p>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="post-entry-1 h-100 bg-white text-center">
-            <a href="#" class="d-inline-block">
-              <img src="modupe.jpeg" alt="Image" class="img-fluid">
-            </a>
-            <div class="post-entry-1-contents">
-              <span class="meta">Management</span>
-              <h2>Modupe Meteke</h2>
-              <p>Part of the dedicated management team supporting the foundation’s mission to uplift the lives of children, widows, and families through compassion, empowerment, and education.</p>
-            </div>
-          </div>
-        </div>
+  <div class="col-lg-4 col-md-6 mb-5">
+    <div class="team-box h-100">
+      <a href="#" class="d-inline-block">
+        <img src="ope.jpeg" alt="Opeyemi Akerele">
+      </a>
+      <div class="team-box-content">
+        <span class="team-role">Assistant Director</span>
+        <h2 class="team-name">Opeyemi Akerele</h2>
+        <p class="team-desc">
+          I work in the legal field and enjoy spending time with family and friends. I have a heart for helping those in need, and being part of this foundation allows me to support women and children who seek hope and care in times of need.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 mb-5">
+    <div class="team-box h-100">
+      <a href="#" class="d-inline-block">
+        <img src="modupe.jpeg" alt="Modupe Meteke">
+      </a>
+      <div class="team-box-content">
+        <span class="team-role">Management</span>
+        <h2 class="team-name">Modupe Meteke</h2>
+        <p class="team-desc">
+          Part of the dedicated management team supporting the foundation’s mission to uplift the lives of children, widows, and families through compassion, empowerment, and education.
+        </p>
+      </div>
 
       </div>
     </div>

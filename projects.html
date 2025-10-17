@@ -2,135 +2,201 @@
 <html lang="en">
 
 <head>
-   <title>EL-RIO EPHPHATHA FOUNDATION</title>
+  <title>EL-RIO EPHPHATHA FOUNDATION</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <link href="https://fonts.googleapis.com/css?family=Mansalva|Roboto&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Mansalva|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/style.css">
- <style>
+  <style>
+    /* ==== LOADER FIXES - keep your original loader behaviour but full-screen ==== */
+    /* wrapper already exists in your markup; keep .loaded transition logic */
+    .wrapper { /* ensure wrapper sits above flow until loaded removed */
+      position: relative;
+      z-index: 99999;
+    }
+
     #loader-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* raised so the preloader sits above the navbar (navbar uses z-index:1999) */
-  z-index: 99999;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999999; /* very high so it covers everything */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(245, 245, 245, 1);
+    }
 
-#loader {
-  display: block;
-  position: relative;
-  left: 50%;        
-  top: 0;
-  width: 51%;
-  height: 100%;
-  background-color: rgb(216, 213, 213);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-blend-mode: multiply;
-  /* match the wrapper so sections remain on top */
-  z-index: 99999;
-  transform: translateX(0);
-}
+    /* Make the loader element itself full area and center the SVG text */
+    #loader {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(216, 213, 213);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-blend-mode: multiply;
+      z-index: 999999;
+      transform: translateX(0);
+    }
 
-#loader-wrapper .loader-section.section-left {
-    left: 0;
-}
+    /* If you still want left/right sliding sections (they were in your CSS), keep them but make sure they cover full height */
+    #loader-wrapper .loader-section {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 999998;
+      pointer-events: none;
+    }
 
-#loader-wrapper .loader-section.section-right {
-    right: 0;
-}
+    #loader-wrapper .loader-section.section-left {
+      left: 0;
+    }
 
-.loaded #loader-wrapper .loader-section.section-left {
-    transform: translateY(-100%);
-    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+    #loader-wrapper .loader-section.section-right {
+      right: 0;
+    }
 
-.loaded #loader-wrapper .loader-section.section-right {
-    transform: translateY(100%);
-    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+    /* loaded state transitions (keeps your previous animation but full-screen) */
+    .loaded #loader-wrapper .loader-section.section-left {
+      transform: translateY(-100%);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
 
-.loaded #loader {
-    opacity: 0;
-    transition: all 0.3s ease-out;
-}
+    .loaded #loader-wrapper .loader-section.section-right {
+      transform: translateY(100%);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
 
-.loaded #loader-wrapper {
-    visibility: hidden;
-    transform: translateX(-100%);
-    transition: all 0.3s 1s ease-out;
-}
+    .loaded #loader {
+      opacity: 0;
+      transition: all 0.3s ease-out;
+    }
 
-#loader svg text {
-    text-transform: uppercase;
-    animation: stroke 3s alternate;
-    stroke-width: 2;
-    stroke: #74220a;
-    font-size: 100px;
-    font-weight: 600;
-}
+    .loaded #loader-wrapper {
+      visibility: hidden;
+      transform: translateX(-100%);
+      transition: all 0.3s 1s ease-out;
+    }
 
-@keyframes stroke {
-    0% {
+    #loader svg text {
+      text-transform: uppercase;
+      animation: stroke 3s alternate;
+      stroke-width: 2;
+      stroke: #74220a;
+      font-size: 80px;
+      font-weight: 600;
+      fill: transparent;
+    }
+
+    @keyframes stroke {
+      0% {
         fill: rgba(72, 138, 20, 0);
         stroke: #9ba29f;
         stroke-dashoffset: 25%;
         stroke-dasharray: 0 50%;
         stroke-width: 2;
-    }
+      }
 
-    70% {
+      70% {
         fill: rgba(72, 138, 20, 0);
         stroke: red;
-    }
+      }
 
-    80% {
+      80% {
         fill: rgba(72, 138, 20, 0);
         stroke: red;
         stroke-width: 3;
-    }
+      }
 
-    100% {
+      100% {
         fill: red;
         stroke: rgba(54, 95, 160, 0);
         stroke-dashoffset: -25%;
         stroke-dasharray: 50% 0;
         stroke-width: 0;
+      }
     }
-}
 
+    /* ==== PROJECT GALLERY: remove spaces between images & make boxes equal ==== */
+    /* Ensure this selector is specific so it doesn't affect other grids */
+    .site-section.project-gallery .container,
+    .site-section.project-gallery .container > .row {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
+    }
 
-    </style>
-  </head>
-<div class="wrapper">
-        <div id="loader-wrapper">
-            <div id="loader">
-                <svg viewBox="0 0 1320 300">
-                    <text x="50%" y="50%" dy=".35em" text-anchor="middle">EL-RIO EPHPHATHA </text>
-                </svg>
-            </div>
-            <div class="loader-section section-left"></div>
-            <div class="loader-section section-right"></div>
-        </div>
+    /* remove bootstrap column horizontal padding for this gallery only */
+    .site-section.project-gallery .row > [class*="col-"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* make images same box shape */
+    .site-section.project-gallery img {
+      display: block;
+      width: 100%;
+      height: 240px; /* change to your preferred box height */
+      object-fit: cover;
+      vertical-align: middle;
+    }
+
+    /* optional small gap for visual separation between rows (vertical only) */
+    .site-section.project-gallery .row + .row {
+      margin-top: 1px;
+    }
+
+    /* if you want a hover effect */
+    .site-section.project-gallery a.d-block {
+      display: block;
+    }
+
+    .site-section.project-gallery a.d-block img:hover {
+      transform: scale(1.03);
+      transition: transform .25s ease;
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="wrapper">
+    <div id="loader-wrapper">
+      <div id="loader">
+        <svg viewBox="0 0 1320 300" width="100%" height="100%">
+          <text x="50%" y="50%" dy=".35em" text-anchor="middle">EL-RIO EPHPHATHA</text>
+        </svg>
+      </div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
     </div>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  </div>
 
   <div class="site-wrap" id="home-section">
 
@@ -147,9 +213,8 @@
       <div class="container">
         <div class="row align-items-center position-relative">
           <div class="site-logo">
-          <a href="index.html" class="text-" style="font-size: 70px; font-weight: bolder; font-family:Georgia, 'Times New Roman', Times, serif ;" >e.r.e</a>
-        </div>
-
+            <a href="index.html" class="text-" style="font-size: 70px; font-weight: bolder; font-family:Georgia, 'Times New Roman', Times, serif ;">e.r.e</a>
+          </div>
 
           <nav class="site-navigation text-left ml-auto" role="navigation">
             <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
@@ -174,16 +239,12 @@
       <div class="box-92819">
         <h1 class="text-white mb-3">Our Impact Project</h1>
         <p class="lead text-white">
-           Showcasing the lives we’ve touched and the communities we’ve transformed over the years.
+          Showcasing the lives we’ve touched and the communities we’ve transformed over the years.
         </p>
       </div>
 
       <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_2.jpg');"></div>
     </div>
-
-    
-
-   >
 
     <div class="site-section">
       <div class="container">
@@ -192,68 +253,71 @@
             <h2 class="text-cursive">Project Gallery</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-3 mb-4">
+        <!-- NOTE: add project-gallery class to scope styling -->
+        <div class="row project-gallery">
+          <div class="col-md-3 mb-0">
             <a href="projects/eductae.jpg" data-fancybox="gallery" class="d-block">
               <img src="projects/eductae.jpg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-05 at 12.34.40 PM.jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-05 at 12.34.40 PM.jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-05 at 12.45.00 PM.jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-05 at 12.45.00 PM.jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-08 at 4.14.23 PM.jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-08 at 4.14.23 PM.jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (1).jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (1).jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (2).jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM (2).jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM.jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-14 at 7.58.35 PM.jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-14 at 8.05.38 PM.jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-14 at 8.05.38 PM.jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (1).jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (1).jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (2).jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM (2).jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM.jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-15 at 3.50.53 PM.jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM (1).jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM (1).jpeg" alt="Project Image" class="img-fluid">
             </a>
           </div>
-          <div class="col-md-3 mb-4">
+          <div class="col-md-3 mb-0">
             <a href="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM.jpeg" data-fancybox="gallery" class="d-block">
               <img src="projects/WhatsApp Image 2025-10-15 at 3.54.23 PM.jpeg" alt="Project Image" class="img-fluid">
             </a>
@@ -261,7 +325,8 @@
         </div>
       </div>
     </div>
- <div class="site-section">
+
+    <div class="site-section">
       <div class="container">
         <div class="d-md-flex cta-20101 align-self-center bg-light p-5">
           <div class="">
@@ -271,6 +336,7 @@
         </div>
       </div>
     </div>
+
     <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
@@ -333,6 +399,7 @@
 
   </div>
 
+  <!-- SCRIPTS -->
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -343,15 +410,22 @@
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/aos.js"></script>
+
   <script>
-      $(document).ready(function () {
-    setTimeout(function () {
-        $('.wrapper').addClass('loaded');
-    }, 2500);
-});
-    </script>
+    // keep your original behaviour: add .loaded to .wrapper
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.wrapper').addClass('loaded'); // your CSS listens to .loaded
+      }, 2500);
+    });
+
+    // ensure fancybox or images don't cause page jump while loader visible
+    $(window).on('load', function() {
+      // nothing else needed — .loaded class will hide loader using CSS transitions above
+    });
+  </script>
+
   <script src="js/main.js"></script>
 </body>
-
 
 </html>
